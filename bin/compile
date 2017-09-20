@@ -49,7 +49,10 @@ echo "-----> Installing Conveniences..."
 $CONDA_BIN/conda install --yes --quiet jupyterlab #&> /dev/null
 $CONDA_BIN/conda install --yres --query -c anaconda psycopg2
 $CONDA_BIN/conda install --yes --quiet matplotlib plotly seaborn pandas #&> /dev/null
-$CONDA_BIN/conda install --yes --quiet -c conda-forge jupyterlab #&> /dev/null
+
+echo "-----> Installing JupyterLab..."
+$CONDA_BIN/pip install jupyterlab #&> /dev/null
+$CONDA_BIN/jupyter serverextension enable --py jupyterlab --user
 
 if [ -e "$ROOT/requirements.txt" ]; then
     echo "-----> Installing additional requirements using conda..."
